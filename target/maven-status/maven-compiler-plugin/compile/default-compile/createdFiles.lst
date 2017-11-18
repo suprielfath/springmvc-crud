@@ -1,0 +1,7 @@
+supri/com/test/mylibrary/util/TypeOfBooks.class
+supri/com/test/mylibrary/model/Book.class
+supri/com/test/mylibrary/dao/impl/BookDaoImpl.class
+supri/com/test/mylibrary/controller/BookController.class
+supri/com/test/mylibrary/service/impl/BookServiceImpl.class
+supri/com/test/mylibrary/service/BookService.class
+supri/com/test/mylibrary/dao/BookDao.class
