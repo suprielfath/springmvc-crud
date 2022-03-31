@@ -9,7 +9,7 @@
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
 		<java-version>1.8</java-version>
-		<spring-version>4.0.3.RELEASE</spring-version>
+		<spring-version>5.3.18</spring-version>
 		<hibernate-version>4.2.7.Final</hibernate-version>
 		<mysql-version>8.0.16</mysql-version>
 		<apache-connection-pooling-version>1.4</apache-connection-pooling-version>
