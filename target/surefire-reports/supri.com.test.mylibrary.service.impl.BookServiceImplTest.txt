@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: supri.com.test.mylibrary.service.impl.BookServiceImplTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.067 s -- in supri.com.test.mylibrary.service.impl.BookServiceImplTest

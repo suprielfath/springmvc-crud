@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "book")
@@ -18,8 +19,8 @@ public class Book {
 	private String 	authors;
 	private String 	publisher;
 	private Date   	publishedOn;
-	private String 	typeofbook;
-	private Integer numberofpages;
+	private String 	typeOfBook;
+	private Integer numberOfPages;
 	
 
 	@Id
@@ -28,6 +29,7 @@ public class Book {
 		return id;
 	}
 
+	@NotEmpty(message = "Authors may not be empty")
 	@Column(nullable = false)
 	public String getAuthors() {
 		return authors;
@@ -43,19 +45,20 @@ public class Book {
 		return publishedOn;
 	}
 
+	@NotEmpty(message = "Title may not be empty")
 	@Column (nullable = false)
 	public String getTitle() {
 		return title;
 	}
 	
-	@Column
-	public String getTypeofbook() {
-		return typeofbook;
+	@Column(name = "type_of_book")
+	public String getTypeOfBook() {
+		return typeOfBook;
 	}
 	
-	@Column
-	public Integer getNumberofpages() {
-		return numberofpages;
+	@Column(name = "number_of_pages")
+	public Integer getNumberOfPages() {
+		return numberOfPages;
 	}
 	
 	public void setId(Long id) {
@@ -78,12 +81,12 @@ public class Book {
 		this.title = title;
 	}
 
-	public void setTypeofbook(String typeofbook) {
-		this.typeofbook = typeofbook;
+	public void setTypeOfBook(String typeOfBook) {
+		this.typeOfBook = typeOfBook;
 	}
 
-	public void setNumberofpages(Integer numberofpages) {
-		this.numberofpages = numberofpages;
+	public void setNumberOfPages(Integer numberOfPages) {
+		this.numberOfPages = numberOfPages;
 	}
 	
 }

@@ -16,40 +16,29 @@ public class BookDaoImpl implements BookDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	@Override
 	public void saveBook(Book book) {
-		getSession().merge(book);
-
+		// Use merge, consistent with the original implementation, to handle detached entities
+		sessionFactory.getCurrentSession().merge(book);
 	}
 
-	@SuppressWarnings("unchecked")
+	@Override
 	public List<Book> listBooks() {
-
-		return getSession().createCriteria(Book.class).list();
+		// Use a type-safe HQL query, which is the recommended approach over the deprecated Criteria API
+		return sessionFactory.getCurrentSession().createQuery("from Book", Book.class).getResultList();
 	}
 
+	@Override
 	public Book getBook(Long id) {
-		return (Book) getSession().get(Book.class, id);
+		return sessionFactory.getCurrentSession().get(Book.class, id);
 	}
 
+	@Override
 	public void deleteBook(Long id) {
-
-		Book book = getBook(id);
-
-		if (null != book) {
-			getSession().delete(book);
+		Session session = sessionFactory.getCurrentSession();
+		Book book = session.get(Book.class, id);
+		if (book != null) {
+			session.delete(book);
 		}
-
-	}
-
-	private Session getSession() {
-		Session sess = getSessionFactory().getCurrentSession();
-		if (sess == null) {
-			sess = getSessionFactory().openSession();
-		}
-		return sess;
-	}
-
-	private SessionFactory getSessionFactory() {
-		return sessionFactory;
 	}
 }
